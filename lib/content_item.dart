@@ -13,14 +13,45 @@ class _ContentListState extends State<ContentList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("妹子图")),
+      appBar: AppBar(
+        title: Text("无聊图"),
+        actions: <Widget>[IconButton(icon: Icon(Icons.add_circle),)],
+      ),
+
+      // body: ListView(
+      //   children: <Widget>[
+      //     ListView.builder(
+      //       padding: EdgeInsets.all(13.0),
+      //       itemCount: _items.length*2,
+      //       itemBuilder: (context, postion){
+      //         if (postion.isOdd) return Divider();
+      //         final index = postion ~/ 2;
+      //         return _buildRowWithPic(index);
+      //       },
+      //     ),
+      //     ListTile(
+      //       title: RaisedButton(
+      //         child: Text("text"),
+      //         onPressed: (){},
+      //       ),
+      //     ),
+      //   ],
+      // ),
+      
       body: ListView.builder(
         padding: EdgeInsets.all(13.0),
         itemCount: _items.length * 2,
         itemBuilder: (context, position) {
-          if (position.isOdd) return Divider();
+          if (position == (_items.length*2-1)) return ListTile(
+            title: RaisedButton(
+              // shape: Paint(),
+              child: Text("next"),
+              onPressed: (){},
+            ),
+          );
           final index = position ~/ 2;
-          return _buildRowWithPic(index);
+          return _buildRow(index);
+          
         },
       ),
     );
@@ -37,6 +68,15 @@ class _ContentListState extends State<ContentList> {
     return ListTile(
       title: Text(comment.pics[0], overflow: TextOverflow.fade),
       subtitle: Text('@${comment.commentAuthor} ${comment.commentDate}'),
+    );
+  }
+
+  Widget _buildButton(int i){
+    return ListTile(
+      title: RaisedButton(
+        child: Text("next"),
+        onPressed: (){},
+      ),
     );
   }
 
@@ -59,7 +99,7 @@ class _ContentListState extends State<ContentList> {
 
   void _loadData() async {
     String dataURL =
-        "http://i.jandan.net/?oxwlxojflwblxbsapi=jandan.get_ooxx_comments&page=1";
+        "http://i.jandan.net/?oxwlxojflwblxbsapi=jandan.get_pic_comments&page=1";
     http.Response response = await http.get(dataURL);
     final body = json.decode(response.body);
     final String code = body["status"];

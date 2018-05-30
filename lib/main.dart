@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
 import 'content_item.dart';
+import 'layout_test01.dart';
+import 'package:flutter/rendering.dart';
 
-void main() => runApp(new AwesomeTips());
+// void main() => runApp(new AwesomeTips());
 
-
-class AwesomeTips extends StatelessWidget{
-  @override
-    Widget build(BuildContext context) {
-      // TODO: implement build
-      return MaterialApp(
-        title: "妹子图",
-        home: ContentList(),
-        theme: ThemeData(primaryColor: Colors.yellow),
-      );
-    }
+void main() {
+  // debugPaintSizeEnabled=true;
+  runApp(new AwesomeTips());
 }
 
-// class AwesomeTips extends StatelessWidget {
+
+// class AwesomeTips extends StatelessWidget{
 //   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: "maijver@gamil.com",
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text("无聊图"),
-//           backgroundColor: Colors.grey,
-//         ),
-//         body: HomeWidget(),
-//       ),
-//     );
-//   }
+//     Widget build(BuildContext context) {
+//       // TODO: implement build
+//       return MaterialApp(
+//         title: "妹子图",
+//         home: Layout1(),
+//         theme: ThemeData(primaryColor: Colors.yellow),
+//       );
+//     }
 // }
+
+class AwesomeTips extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      title: "maijver@gamil.com",
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("无聊图"),
+          // backgroundColor: Colors.grey,
+        ),
+        // body: Layout1(),
+        body: ListView(
+          children: <Widget>[Layout4(), Layout1(), Layout2(), Layout3()],
+        ),
+      ),
+    );
+  }
+}
 
 // class HomeWidget extends StatelessWidget {
 //   @override
