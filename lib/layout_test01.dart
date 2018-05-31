@@ -13,7 +13,7 @@ class Layout1 extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
-                  child: new Text(
+                  child: Text(
                     'Oeschinen Lake Campground',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -29,11 +29,12 @@ class Layout1 extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          Text('41'),
+          // Icon(
+          //   Icons.star,
+          //   color: Colors.red[500],
+          // ),
+          // Text('41'),
+          FavWidget(),
         ],
       ),
     );
@@ -80,7 +81,7 @@ class Layout3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(35.0),
+      padding: EdgeInsets.all(32.0),
       child: Text(
         "Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.",
         softWrap: true,
@@ -96,6 +97,70 @@ class Layout4 extends StatelessWidget {
       // child: Image.asset("images/lake.jpeg", height: 240.0, fit: BoxFit.cover),
       child: Image.network("https://i.loli.net/2018/05/27/5b0abc043b96b.png",
           height: 240.0, fit: BoxFit.cover),
+    );
+  }
+}
+
+class Layout5 extends StatelessWidget {
+  @override
+    Widget build(BuildContext context) {
+      return Container(
+        padding: EdgeInsets.all(32.0),
+        child: Row(
+          children: <Widget>[
+            Icon(Icons.book),
+            Text("blog")
+          ],
+        ),
+      );
+    }
+}
+
+class FavWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _FavWidget();
+  }
+}
+
+class _FavWidget extends State<FavWidget> {
+  bool is_fav = true;
+  int fav_count = 41;
+
+  void toggleFav() {
+    setState(() {
+      if (is_fav) {
+        fav_count -= 1;
+        is_fav = false;
+      } else {
+        fav_count += 1;
+        is_fav = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          // padding: EdgeInsets.all(0.0),
+          child: IconButton(
+            icon: (is_fav ? Icon(Icons.star) : Icon(Icons.star_border)),
+            color: Colors.red[500],
+            onPressed: toggleFav,
+          ),
+        ),
+        SizedBox(
+          width: 18.0,
+          child: Container(
+            child: Text('$fav_count'),
+          ),
+        ),
+        // Checkbox(),
+      ],
     );
   }
 }

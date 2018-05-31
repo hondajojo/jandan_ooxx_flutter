@@ -38,7 +38,7 @@ class AwesomeTips extends StatelessWidget {
         ),
         // body: Layout1(),
         body: ListView(
-          children: <Widget>[Layout4(), Layout1(), Layout2(), Layout3()],
+          children: <Widget>[Layout4(), Layout1(), Layout2(), Layout3(), Layout5()],
         ),
       ),
     );

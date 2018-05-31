@@ -15,7 +15,7 @@ class _ContentListState extends State<ContentList> {
     return Scaffold(
       appBar: AppBar(
         title: Text("无聊图"),
-        actions: <Widget>[IconButton(icon: Icon(Icons.add_circle),)],
+        actions: <Widget>[IconButton(icon: Icon(Icons.add_circle),onPressed: (){},)],
       ),
 
       // body: ListView(
