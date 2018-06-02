@@ -103,17 +103,14 @@ class Layout4 extends StatelessWidget {
 
 class Layout5 extends StatelessWidget {
   @override
-    Widget build(BuildContext context) {
-      return Container(
-        padding: EdgeInsets.all(32.0),
-        child: Row(
-          children: <Widget>[
-            Icon(Icons.book),
-            Text("blog")
-          ],
-        ),
-      );
-    }
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(32.0),
+      child: Row(
+        children: <Widget>[Icon(Icons.book), Text("blog")],
+      ),
+    );
+  }
 }
 
 class FavWidget extends StatefulWidget {
@@ -121,6 +118,203 @@ class FavWidget extends StatefulWidget {
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _FavWidget();
+  }
+}
+
+class Layout6 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Layout6_1(),
+          Layout6_3(),
+          Layout6_4(),
+          Layout6_5(),
+          Layout6_2(),
+        ],
+      ),
+    );
+  }
+}
+
+class Layout6_1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.insert_link),
+              ),
+              Text(
+                "www.baidu.com",
+                style:
+                    TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.bookmark_border),
+                color: Colors.deepOrange,
+                onPressed: () {},
+              ),
+              Text(
+                "收藏",
+                style: TextStyle(color: Colors.deepOrange),
+              ),
+              // Icon(Icons.bookmark_border)
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Layout6_2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.share),
+                  onPressed: () {},
+                  color: Colors.deepOrange,
+                ),
+                Text(
+                  "分享",
+                  style: TextStyle(color: Colors.deepOrange),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.comment),
+                  onPressed: () {},
+                  color: Colors.deepOrange,
+                ),
+                Text(
+                  "简评",
+                  style: TextStyle(color: Colors.deepOrange),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.link),
+                  onPressed: () {},
+                  color: Colors.deepOrange,
+                ),
+                Text(
+                  "原链",
+                  style: TextStyle(color: Colors.deepOrange),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.local_offer),
+                  onPressed: () {},
+                  color: Colors.deepOrange,
+                ),
+                Text(
+                  "标签",
+                  style: TextStyle(
+                    color: Colors.deepOrange,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Layout6_3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      padding: EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        children: <Widget>[
+          Text(
+            "Facebook 管理层超稳定",
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 18.0,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Layout6_4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // padding: EdgeInsets.all(32.0),
+      child: Text(
+        "Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.",
+        softWrap: true,
+        style: TextStyle(
+          fontSize: 14.0,
+        ),
+      ),
+    );
+  }
+}
+
+class Layout6_5 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      padding: EdgeInsets.only(top: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "3天前·",
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+          ),
+          Text(
+            "8分钟读完·",
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+          ),
+          Text(
+            "浏览量5554",
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+          ),
+        ],
+      ),
+    );
   }
 }
 
