@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Layout1 extends StatelessWidget {
   @override
@@ -125,7 +126,10 @@ class Layout6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
+    return InkWell(
+      // onTap: () {
+      //    _launchURL("http://www.baidu.com");
+      // },
       child: Column(
         children: <Widget>[
           Layout6_1(),
@@ -136,6 +140,14 @@ class Layout6 extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 
@@ -154,8 +166,9 @@ class Layout6_1 extends StatelessWidget {
               ),
               Text(
                 "www.baidu.com",
-                style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+                // style:
+                //     TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+                style: Theme.of(context).textTheme.caption,
               ),
             ],
           ),
@@ -302,15 +315,18 @@ class Layout6_5 extends StatelessWidget {
         children: <Widget>[
           Text(
             "3天前·",
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            // style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            style: Theme.of(context).textTheme.caption,
           ),
           Text(
             "8分钟读完·",
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            // style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            style: Theme.of(context).textTheme.caption,
           ),
           Text(
             "浏览量5554",
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            // style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w200),
+            style: Theme.of(context).textTheme.caption,
           ),
         ],
       ),
